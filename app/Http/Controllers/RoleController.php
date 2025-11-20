@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Role;
 use Illuminate\Http\Request;
 
 class RoleController extends Controller
@@ -12,6 +13,8 @@ class RoleController extends Controller
     public function index()
     {
         //
+        $rows = Role::wherenull('deleted_at')->get();
+        return view('roles.index', compact('rows'));
     }
 
     /**
@@ -19,6 +22,7 @@ class RoleController extends Controller
      */
     public function create()
     {
+        return view('roles.create');
         //
     }
 
@@ -28,6 +32,17 @@ class RoleController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'name' => 'required|unique:roles,name',
+            'description' => 'nullable|string',
+        ]);
+
+        Role::create([
+            'name' => $request->name,
+            'description' => $request->description,
+        ]);
+
+        return redirect()->route('role.index')->with('success', 'Role created successfully.');
     }
 
     /**
