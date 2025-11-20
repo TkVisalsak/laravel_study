@@ -6,18 +6,18 @@
             <h4 class="card-title">Edit Role</h4> 
         </div>
         <div class="card-body">
-            <form action="{{ route('role.update',$row ->if) }}" method="POST">
+            <form action="{{ route('role.update',$row ->id) }}" method="POST">
                 @method('PUT')
                 @csrf
                 <div class="mb-3">
                     <label for="roleName" class="form-label">Role Name</label>
-                    <input type="text" class="form-control" id="roleName" name="name" required>
+                    <input type="text" class="form-control" value="{{ $row->name ?? old('name') }}" name="name" required>
                 </div>
                 <div class="mb-3">
                     <label for="roleDescription" class="form-label">Role Description</label>
-                    <textarea class="form-control" id="roleDescription" name="description" rows="3"></textarea>
+                    <textarea class="form-control"  name="description" rows="3">{{ $row->description ??  old('description') }}</textarea>
                 </div>
-                <button type="submit" class="btn btn-primary">Create Role</button>
+                <button type="submit" class="btn btn-primary">Update Role</button>
 
             </form>
         </div>

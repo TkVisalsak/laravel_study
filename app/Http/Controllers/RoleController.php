@@ -60,7 +60,6 @@ class RoleController extends Controller
     {
         //
         $row = Role::findOrFail($id);
-        dd($row);
         return view('roles.edit', compact('row'));
     }
 
@@ -69,7 +68,16 @@ class RoleController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validate = $request->validate([
+            'name' => 'required|unique:roles,name,'.$id,
+            'description' => 'nullable|string',
+        ]);
+        $row = Role::findOrFail($id);
+        $row->update([
+            'name' => $request->name,   
+            'description' => $request->description,
+        ]);
+        return redirect()->route('role.index')->with('success', 'Role updated successfully.');
     }
 
     /**
@@ -78,5 +86,9 @@ class RoleController extends Controller
     public function destroy(string $id)
     {
         //
+         $row = Role::findOrFail($id);
+            $row->delete(); 
+
+    return redirect()->route('role.index')->with('success', 'Role deleted successfully.');
     }
 }
