@@ -59,6 +59,9 @@ class RoleController extends Controller
     public function edit(string $id)
     {
         //
+        $row = Role::findOrFail($id);
+        dd($row);
+        return view('roles.edit', compact('row'));
     }
 
     /**
