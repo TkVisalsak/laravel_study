@@ -1,5 +1,6 @@
 <?php
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MenuController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BannerController;
@@ -30,3 +31,4 @@ Route::get('role-delete/{id}', [RoleController::class,'destroy'])->name('role.de
 
 Route::resource('users', UserController::class);
 Route::resource('banners', BannerController::class);
+Route::resource('menus', MenuController::class);
