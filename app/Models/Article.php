@@ -1,0 +1,25 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
+class Article extends Model
+{
+    use SoftDeletes;
+    protected $fillable = [
+        'title',
+        'menu_id',
+        'sub_title',
+        'content',
+        'description',
+        'slug',
+        'image',
+    ];
+
+    public function menu(){
+
+        return $this->belongsTo(Menu::class);
+    }
+}

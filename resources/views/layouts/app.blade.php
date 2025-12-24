@@ -341,6 +341,9 @@
                                     <li class="nav-item">
                                         <a class="nav-link" href="{{ route('menus.index') }}">Menus</a>
                                     </li><!--end nav-item-->
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('articles.index') }}">Articles</a>
+                                    </li><!--end nav-item-->
 
 
 
