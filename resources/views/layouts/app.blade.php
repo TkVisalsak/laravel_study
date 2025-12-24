@@ -335,6 +335,9 @@
                                     <li class="nav-item">
                                         <a class="nav-link" href="{{ route('users.index') }}">Users</a>
                                     </li><!--end nav-item-->
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('banners.index') }}">Banners</a>
+                                    </li><!--end nav-item-->
 
 
 

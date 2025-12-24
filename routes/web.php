@@ -2,6 +2,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\BannerController;
 
 Route::get('/', function () {
     return view('index');
@@ -28,3 +29,4 @@ Route::put('role-update/{id}', [RoleController::class,'update'])->name('role.upd
 Route::get('role-delete/{id}', [RoleController::class,'destroy'])->name('role.delete');
 
 Route::resource('users', UserController::class);
+Route::resource('banners', BannerController::class);
