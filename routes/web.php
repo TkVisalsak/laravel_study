@@ -1,6 +1,7 @@
 <?php
-use App\Http\Controllers\RoleController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     return view('index');
@@ -26,3 +27,4 @@ Route::get('role-edit/{id}', [RoleController::class,'edit'])->name('role.edit');
 Route::put('role-update/{id}', [RoleController::class,'update'])->name('role.update');
 Route::get('role-delete/{id}', [RoleController::class,'destroy'])->name('role.delete');
 
+Route::resource('users', UserController::class);

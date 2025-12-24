@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr" data-startbar="light" data-bs-theme="light">
 <head>
-    
+
 
     <meta charset="utf-8" />
         <title>Admin Dashboard</title>
@@ -19,6 +19,12 @@
      <link href="{{ asset('backend/assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
      <link href="{{ asset('backend/assets/css/app.min.css') }}" rel="stylesheet" type="text/css" />
 
+    <style>
+        .btn_delete {
+            border: transparent;
+            background: transparent;
+        }
+    </style>
 </head>
 
 <body>
@@ -26,18 +32,18 @@
     <!-- Top Bar Start -->
     <div class="topbar d-print-none">
         <div class="container-xxl">
-            <nav class="topbar-custom d-flex justify-content-between" id="topbar-custom">    
+            <nav class="topbar-custom d-flex justify-content-between" id="topbar-custom">
 
-                <ul class="topbar-item list-unstyled d-inline-flex align-items-center mb-0">                        
+                <ul class="topbar-item list-unstyled d-inline-flex align-items-center mb-0">
                     <li>
                         <button class="nav-link mobile-menu-btn nav-icon" id="togglemenu">
                             <i class="iconoir-menu-scale"></i>
                         </button>
-                    </li> 
+                    </li>
                     <li class="mx-3 welcome-text">
                         <h3 class="mb-0 fw-bold text-truncate">Good Morning, James!</h3>
                         <!-- <h6 class="mb-0 fw-normal text-muted text-truncate fs-14">Here's your overview this week.</h6> -->
-                    </li>                   
+                    </li>
                 </ul>
                 <ul class="topbar-item list-unstyled d-inline-flex align-items-center mb-0">
                     <li class="hide-phone app-search">
@@ -45,7 +51,7 @@
                             <input type="search" name="search" class="form-control top-search mb-0" placeholder="Search here...">
                             <button type="submit"><i class="iconoir-search"></i></button>
                         </form>
-                    </li>     
+                    </li>
                     <li class="dropdown">
                         <a class="nav-link dropdown-toggle arrow-none nav-icon" data-bs-toggle="dropdown" href="#" role="button"
                         aria-haspopup="false" aria-expanded="false">
@@ -58,14 +64,14 @@
                             <a class="dropdown-item" href="#"><img src="assets/images/flags/french_flag.jpg" alt="" height="15" class="me-2">French</a>
                         </div>
                     </li><!--end topbar-language-->
-        
+
                     <li class="topbar-item">
                         <a class="nav-link nav-icon" href="javascript:void(0);" id="light-dark-mode">
                             <i class="icofont-moon dark-mode"></i>
                             <i class="icofont-sun light-mode"></i>
-                        </a>                    
+                        </a>
                     </li>
-    
+
                     <li class="dropdown topbar-item">
                         <a class="nav-link dropdown-toggle arrow-none nav-icon" data-bs-toggle="dropdown" href="#" role="button"
                             aria-haspopup="false" aria-expanded="false">
@@ -73,7 +79,7 @@
                             <span class="alert-badge"></span>
                         </a>
                         <div class="dropdown-menu stop dropdown-menu-end dropdown-lg py-0">
-                        
+
                             <h5 class="dropdown-item-text m-0 py-3 d-flex justify-content-between align-items-center">
                                 Notifications <a href="#" class="badge text-body-tertiary badge-pill">
                                     <i class="iconoir-plus-circle fs-4"></i>
@@ -129,7 +135,7 @@
                                         <a href="#" class="dropdown-item py-3">
                                             <small class="float-end text-muted ps-2">40 min ago</small>
                                             <div class="d-flex align-items-center">
-                                                <div class="flex-shrink-0 bg-primary-subtle text-primary thumb-md rounded-circle">                                                    
+                                                <div class="flex-shrink-0 bg-primary-subtle text-primary thumb-md rounded-circle">
                                                     <i class="iconoir-birthday-cake fs-4"></i>
                                                 </div>
                                                 <div class="flex-grow-1 ms-2 text-truncate">
@@ -170,7 +176,7 @@
                                         <a href="#" class="dropdown-item py-3">
                                             <small class="float-end text-muted ps-2">40 min ago</small>
                                             <div class="d-flex align-items-center">
-                                                <div class="flex-shrink-0 bg-primary-subtle text-primary thumb-md rounded-circle">                                                    
+                                                <div class="flex-shrink-0 bg-primary-subtle text-primary thumb-md rounded-circle">
                                                     <i class="iconoir-birthday-cake fs-4"></i>
                                                 </div>
                                                 <div class="flex-grow-1 ms-2 text-truncate">
@@ -235,7 +241,7 @@
                                         </a><!--end-item-->
                                     </div>
                                 </div>
-                            
+
                             </div>
                             <!-- All-->
                             <a href="pages-notifications.html" class="dropdown-item text-center text-dark fs-13 py-2">
@@ -243,7 +249,7 @@
                             </a>
                         </div>
                     </li>
-    
+
                     <li class="dropdown topbar-item">
                         <a class="nav-link dropdown-toggle arrow-none nav-icon" data-bs-toggle="dropdown" href="#" role="button"
                             aria-haspopup="false" aria-expanded="false">
@@ -263,16 +269,16 @@
                             <small class="text-muted px-2 pb-1 d-block">Account</small>
                             <a class="dropdown-item" href="pages-profile.html"><i class="las la-user fs-18 me-1 align-text-bottom"></i> Profile</a>
                             <a class="dropdown-item" href="pages-faq.html"><i class="las la-wallet fs-18 me-1 align-text-bottom"></i> Earning</a>
-                            <small class="text-muted px-2 py-1 d-block">Settings</small>                        
+                            <small class="text-muted px-2 py-1 d-block">Settings</small>
                             <a class="dropdown-item" href="pages-profile.html"><i class="las la-cog fs-18 me-1 align-text-bottom"></i>Account Settings</a>
                             <a class="dropdown-item" href="pages-profile.html"><i class="las la-lock fs-18 me-1 align-text-bottom"></i> Security</a>
-                            <a class="dropdown-item" href="pages-faq.html"><i class="las la-question-circle fs-18 me-1 align-text-bottom"></i> Help Center</a>                       
+                            <a class="dropdown-item" href="pages-faq.html"><i class="las la-question-circle fs-18 me-1 align-text-bottom"></i> Help Center</a>
                             <div class="dropdown-divider mb-0"></div>
                             {{-- <a class="dropdown-item text-danger" href="auth-login.html"><i class="las la-power-off fs-18 me-1 align-text-bottom"></i> Logout</a> --}}
                             <a class="dropdown-item text-danger" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        <i class="las la-power-off fs-18 me-1 align-text-bottom"></i> 
+                                        <i class="las la-power-off fs-18 me-1 align-text-bottom"></i>
                                         {{ __('Logout') }}
                                     </a>
 
@@ -324,27 +330,30 @@
                             <div class="collapse " id="sidebarDashboards">
                                 <ul class="nav flex-column">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{route('role.index')}}">Roles</a>
+                                        <a class="nav-link" href="{{ route('role.index') }}">Roles</a>
                                     </li><!--end nav-item-->
                                     <li class="nav-item">
-                                        <a class="nav-link" href="ecommerce-index.html">Users</a>
+                                        <a class="nav-link" href="{{ route('users.index') }}">Users</a>
                                     </li><!--end nav-item-->
+
+
+
                                 </ul><!--end nav-->
                             </div><!--end startbarDashboards-->
                         </li><!--end nav-item-->
 
                     </ul><!--end navbar-nav--->
-                    <div class="update-msg text-center"> 
+                    <div class="update-msg text-center">
                         <div class="d-flex justify-content-center align-items-center thumb-lg update-icon-box  rounded-circle mx-auto">
                             <i class="iconoir-peace-hand h3 align-self-center mb-0 text-primary"></i>
-                        </div>                   
+                        </div>
                         <h5 class="mt-3">Mannat Themes</h5>
                         <p class="mb-3 text-muted">Rizz is a high quality web applications.</p>
                         <a href="javascript: void(0);" class="btn text-primary shadow-sm rounded-pill">Upgrade your plan</a>
                     </div>
                 </div>
             </div><!--end startbar-collapse-->
-        </div><!--end startbar-menu-->    
+        </div><!--end startbar-menu-->
     </div><!--end startbar-->
     <div class="startbar-overlay d-print-none"></div>
     <!-- end leftbar-tab-menu-->
@@ -362,7 +371,7 @@
                   <h5 class="m-0 font-14" id="AppearanceLabel">Appearance</h5>
                   <button type="button" class="btn-close text-reset p-0 m-0 align-self-center" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
-                <div class="offcanvas-body">  
+                <div class="offcanvas-body">
                     <h6>Account Settings</h6>
                     <div class="p-2 text-start mt-3">
                         <div class="form-check form-switch mb-2">
@@ -392,13 +401,13 @@
                             <input class="form-check-input" type="checkbox" id="settings-switch6">
                             <label class="form-check-label" for="settings-switch6">Notifications Popup</label>
                         </div><!--end form-switch-->
-                    </div><!--end /div-->               
+                    </div><!--end /div-->
                 </div><!--end offcanvas-body-->
             </div>
             <!--end Rightbar/offcanvas-->
             <!--end Rightbar-->
             <!--Start Footer-->
-            
+
             <footer class="footer text-center text-sm-start d-print-none">
                 <div class="container-xxl">
                     <div class="row">
@@ -430,7 +439,7 @@
 
     <!-- Javascript  -->
     <!-- vendor js -->
-    
+
     <script src="{{ ('backend/assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ ('backend/assets/libs/simplebar/simplebar.min.js') }}"></script>
 
@@ -439,7 +448,7 @@
     <script src="{{ ('backend/assets/libs/jsvectormap/js/jsvectormap.min.js') }}"></script>
     <script src="{{ ('backend/assets/libs/jsvectormap/maps/world.js') }}"></script>
     <script src="{{ ('backend/assets/js/pages/index.init.js') }}"></script>
-    <script src="{{ ('backend/assets/js/app.js') }}"></script> 
+    <script src="{{ ('backend/assets/js/app.js') }}"></script>
 </body>
 <!--end body-->
 

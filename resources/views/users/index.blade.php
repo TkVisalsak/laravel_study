@@ -7,7 +7,7 @@
                                 <div class="card-header">
                                     <div class="row align-items-center">
                                         <div class="col">
-                                            <h4 class="card-title">List of Roles</h4>
+                                            <h4 class="card-title">List of Users</h4>
                                         </div><!--end col-->
                                         <div class="col-auto">
                                             <form class="row g-2">
@@ -64,8 +64,7 @@
                                                 </div><!--end col-->
 
                                                 <div class="col-auto">
-                                                  {{-- <button type="button" class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#addBoard"><i class="fa-solid fa-plus me-1"></i> Add Product</button> --}}
-                                                  <a href="{{ route('role.create') }}" class="btn btn-primary"><i class="fa-solid fa-plus me-1"></i> Add role</a>
+                                                  <a href="{{ route('users.create') }}" class="btn btn-primary"><i class="fa-solid fa-plus me-1"></i> Add User</a>
                                                 </div><!--end col-->
                                             </form>
                                         </div><!--end col-->
@@ -78,8 +77,10 @@
                                             <thead class="table-light">
                                               <tr>
                                                 <th class="ps-0">No</th>
+                                                <th class="ps-0">Profile</th>
                                                 <th class="ps-0">Name</th>
-                                                <th class="ps-0">Description</th>
+                                                <th class="ps-0">Role</th>
+                                                <th class="ps-0">Email</th>
                                                 <th class="text-end">Action</th>
                                               </tr>
                                             </thead>
@@ -89,11 +90,23 @@
                                                     @foreach ($rows as $row)
                                                         <tr>
                                                             <td>{{ $i++ }}</td>
+                                                            <td>
+                                                                <img src="{{ asset($row->profile) }}"
+                                                                class="avatar avatar-md rounded-circle" width="75px" height="75px">
+                                                            </td>
                                                             <td>{{ $row['name'] }}</td>
-                                                            <td>{{ $row['description'] }}</td>
-                                                            <td class="text-end">
-                                                                <a href="{{ route('role.edit', $row->id) }}"><i class="las la-pen text-secondary fs-18"></i></a>
-                                                                <a onclick="confirm('ចង់លុបមែនអត់?')" href="{{ route('role.delete',$row->id) }}"><i class="las la-trash-alt text-secondary fs-18"></i></a>
+                                                            <td>{{ $row->role->name }}</td>
+                                                            <td>{{ $row->email }}</td>
+                                                            <td class="text-end d-flex justify-content-end gap-1">
+                                                                <a href="{{ route('users.edit', $row->id) }}"><i
+                                                                    class="las la-pen text-secondary fs-18"></i></a>
+                                                                @if($row->is_superadmin == 0)
+                                                                    <form action="{{ route('users.destroy', $row->id) }}" method="POST">
+                                                                        @csrf
+                                                                        @method('DELETE')
+                                                                        <button class="btn_delete" type="submit" onclick="confirm('ចង់លុបមែនអត់?')" ><i class="las la-trash-alt text-secondary fs-18"></i></button>
+                                                                    </form>
+                                                                @endif
                                                             </td>
                                                         </tr>
                                                     @endforeach
