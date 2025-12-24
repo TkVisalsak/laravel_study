@@ -5,6 +5,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\articleController;
+use App\Http\Controllers\settingController;
 
 Route::get('/', function () {
     return view('index');
@@ -34,3 +35,4 @@ Route::resource('users', UserController::class);
 Route::resource('banners', BannerController::class);
 Route::resource('menus', MenuController::class);
 Route::resource('articles', articleController::class);
+Route::resource('settings', settingController::class)->only(['edit', 'update']);
